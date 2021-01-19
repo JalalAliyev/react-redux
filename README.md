@@ -1,3 +1,22 @@
+# We can create a Redux store using the Redux Toolkit configureStore API
+configureStore accepts a reducer function as a named argument
+configureStore automatically sets up the store with good default settings
+# Redux logic is typically organized into files called "slices"
+A "slice" contains the reducer logic and actions related to a specific feature / section of the Redux state
+Redux Toolkit's createSlice API generates action creators and action types for each individual reducer function you provide
+# Redux reducers must follow specific rules
+Should only calculate a new state value based on the state and action arguments
+Must make immutable updates by copying the existing state
+Cannot contain any asynchronous logic or other "side effects"
+Redux Toolkit's createSlice API uses Immer to allow "mutating" immutable updates
+# Async logic is typically written in special functions called "thunks"
+Thunks receive dispatch and getState as arguments
+Redux Toolkit enables the redux-thunk middleware by default
+# React-Redux allows React components to interact with a Redux store
+Wrapping the app with <Provider store={store}> enables all components to use the store
+Global state should go in the Redux store, local state should stay in React components
+
+
 # Redux state is updated by "reducer functions":
 Reducers always calculate a new state immutably, by copying existing state values and modifying the copies with the new data
 The Redux Toolkit createSlice function generates "slice reducer" functions for you, and lets you write "mutating" code that is turned into safe immutable updates
